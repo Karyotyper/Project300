@@ -56,7 +56,7 @@ public class LoginController {
 	 */
 	
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public String userSignUpEntry(User newUser) {
+	public String userSignUp(User newUser) {
 		
 		System.out.println("/signup");
 		User user = null;
