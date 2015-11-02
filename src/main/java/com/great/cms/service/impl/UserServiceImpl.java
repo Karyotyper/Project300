@@ -41,4 +41,10 @@ public class UserServiceImpl implements UserService, Serializable {
 		return user;
 	}
 
+	@Override
+	public void save(User user) {
+		userDao.save(user);
+		
+	}
+
 }
