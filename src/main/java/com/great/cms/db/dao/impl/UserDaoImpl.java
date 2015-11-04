@@ -23,14 +23,20 @@ public class UserDaoImpl extends GenericDaoImpl<User, Long>implements UserDao {
 	
 
 	@Override
-	public User findUserByName(String Name) {
+	public User findUserByName(String name) {
 		User user = null;
 		try{
-			user = (User) em.createQuery("select o from " + type.getName() + " o where o.userName="+Name+" ").getResultList().get(0);
- 	             
+			System.out.println("UserDao :findUserByName = (" + name + ")"); 
+
+			user =(User) em.createQuery("select o from " + type.getName() + " o where " +
+     				   "o.userName = ?1 ")
+     				   .setParameter(1, name)
+     				   .getResultList().get(0);
+ 	        
  		}
 		catch(Exception e){
-			System.out.println("*******failure*******");
+			System.out.println("Exception in UserDao : " + e);
+			return null;
         }
 		    System.out.println("*******successful*******");
 		return user;
