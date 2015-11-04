@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService, Serializable {
 		
 		user=userDao.findUserByName(userName);
 		
-		if(user == null) System.out.println("user is null");
+		if(user == null) System.out.println("User Service : user is null");
 		return user;
 	}
 

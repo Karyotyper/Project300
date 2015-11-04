@@ -37,6 +37,12 @@ public class HomeController {
 		return "submission";
 	}
 	
+	@RequestMapping("/login")
+	public String logIn(){
+		//System.out.println("Submission Page Mapping");
+		return "login";
+	}
+	
 	@RequestMapping(value="/projectgroups")
 	public String showProjectGroup(Model model,@RequestParam("task_id")int taskId){
 		System.out.println("Project Group  Page Mapping");

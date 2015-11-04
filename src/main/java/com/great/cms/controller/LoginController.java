@@ -27,7 +27,7 @@ public class LoginController {
 		
 		
 		User user =null;
-		
+		System.out.println("usr name = " + username + " pass : " + password);
 		user=userService.getUserByName(username);
 		if(user==null){
 			model.addAttribute("message", "Invalid usrname or password");

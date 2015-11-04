@@ -7,7 +7,9 @@
 package com.great.cms.db.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,6 +25,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  *
@@ -157,5 +162,7 @@ public class User implements Serializable,DomainObject {
     public String toString() {
         return "com.sustarchive.app.model.User[ userId=" + userId + " ]";
     }
+
+	
     
 }

@@ -37,9 +37,10 @@
 		<log4j.version>1.2.16</log4j.version>
 		<mysql.version>5.1.6</mysql.version>
 		<spring.version>3.1.1.RELEASE</spring.version>
-		<!-- <spring.security.version>3.0.7.RELEASE</spring.security.version> -->
+		<spring.security.version>3.0.7.RELEASE</spring.security.version>
 		<slf4j.version>1.5.8</slf4j.version>
 		<httpclient.version>4.1</httpclient.version>
+		<jstl.version>1.2</jstl.version>
 	</properties>
 
 	<build>
@@ -122,18 +123,18 @@
 					<version>1.1</version>
 					<scope>provided</scope>
 				</dependency>
-				
-			    <dependency>
-				        <groupId>commons-fileupload</groupId>
-				        <artifactId>commons-fileupload</artifactId>
-				        <version>1.2</version>
+
+				<dependency>
+					<groupId>commons-fileupload</groupId>
+					<artifactId>commons-fileupload</artifactId>
+					<version>1.2</version>
 				</dependency>
 				<dependency>
-				        <groupId>org.apache.commons</groupId>
-				        <artifactId>commons-io</artifactId>
-				        <version>1.4</version>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-io</artifactId>
+					<version>1.4</version>
 				</dependency>
-				
+
 			</dependencies>
 		</profile>
 
@@ -219,12 +220,12 @@
 			<artifactId>el-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
-		
+
+
 		<dependency>
-			  <groupId>com.google.code.gson</groupId>
-	          <artifactId>gson</artifactId>
-	         <version>2.2.4</version>	 
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.4</version>
 		</dependency>
 
 		<dependency>
@@ -351,31 +352,42 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
-			<version>${spring.version}</version>
-			<!-- <version>${spring.security.version}</version> -->
+			<!-- <version>${spring.version}</version> -->
+			<version>${spring.security.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
-			<version>${spring.version}</version>
-			<!-- <version>${spring.security.version}</version> -->
+			<!--<version>${spring.version}</version> -->
+			<version>${spring.security.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
-			<version>${spring.version}</version>
-			<!-- <version>${spring.security.version}</version> -->
+			<!-- <version>${spring.version}</version> -->
+			<version>${spring.security.version}</version>
 		</dependency>
 
-		<!-- 
+		<!-- Spring Security JSP Taglib -->
 		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-commons</artifactId>
-			<version>1.11.0.RELEASE</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
 		</dependency>
-		 -->	
-			
-			
+		<!-- jstl for jsp page -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+		
+		<!-- <dependency> 
+		<groupId>org.springframework.data</groupId> 
+		<artifactId>spring-data-commons</artifactId> 
+		<version>1.11.0.RELEASE</version> 
+		</dependency> -->
+
+
 		<!-- c3p0 Connection Pool -->
 		<dependency>
 			<groupId>c3p0</groupId>
@@ -489,7 +501,7 @@
 			<artifactId>freemarker</artifactId>
 			<version>2.3.20</version>
 		</dependency>
-	<dependency>
+		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.2</version>
