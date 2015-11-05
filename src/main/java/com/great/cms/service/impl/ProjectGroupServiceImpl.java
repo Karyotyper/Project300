@@ -42,7 +42,7 @@ public class ProjectGroupServiceImpl implements ProjectGroupService,Serializable
 	private ProjectDao projectDao;
 	
 	public List<GroupBean> findGroupsByProjectId(int projectId) {
-		
+		System.out.println("LOOKING FOR GROUPS UNDER PROJECT ID: " +projectId);
 		List<ProjectGroup> projectGroupList = projectGroupDao.findAll();
 		List<GroupBean> groupList = new ArrayList();
 		if(projectGroupList!=null)
@@ -56,7 +56,7 @@ public class ProjectGroupServiceImpl implements ProjectGroupService,Serializable
 				
 					List<String> memberList = new ArrayList<>();
 					List <StudentGroup> members = studentGroupDao.findStudentByGroupId(gb.getGroupId());
-					if( !members.isEmpty() )
+					if( !members.isEmpty() && members != null )
 					for(StudentGroup sg : members)
 						memberList.add("" + sg.getStudentId().getRegistrationNo() );
 					

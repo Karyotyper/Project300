@@ -94,6 +94,7 @@ public class GroupController {
     {
 		System.out.println("GroupController  -> editgroup");	
 		//projectGroupService.editGroupOfProject(groupId, studentList);
+		System.out.println("Group ");
 		projectGroupService.editGroup(groupInputBean);
 		return "{ \"success\" : true }";
     }

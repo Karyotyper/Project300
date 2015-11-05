@@ -98,6 +98,7 @@ $(document)
 						$("#edit_submission_comment").val("");
 						$('#edit_submission_date').val("06/01/2015 12:00:00");
 						$('#modalSubmissionEdit').modal('show');
+						$("#edit_submission_file").val(null);
 					});
 
 					// show Submission Edit modal on button click
@@ -140,7 +141,38 @@ $(document)
 
 					// Submit Submission add/edit form
 					$('#edit_submission').submit(function(event) {
-						saveMedia();
+						//saveMedia();
+						var form = document.getElementById('edit_submission');
+						var formData = new FormData(form);
+						var selectedFileName = $("#edit_submission_file").val();
+						if (selectedFileName === null | selectedFileName === ""){
+							tempURL = tempURL +'nofile';
+							//alert('We have >>' + tempURL + '<<');
+
+						}
+						if (selectedFileName != null && selectedFileName != "") {
+							formData.append('file', $('input[type=file]')[0].files[0]);
+							
+						} else {
+							// formData = "";
+							// formData = $('#edit_submission').serialize();
+						}
+						// console.log("form data " + formData);
+						$.ajax({
+							url : tempURL+"?submissionId=" + submissionID,
+							data : formData,
+							// dataType: json,
+							processData : false,
+							contentType : false,
+							type : 'POST',
+							success : function(data) {
+								$('#modalSubmissionEdit').modal('hide');
+								submissionTable.ajax.reload();
+							},
+							error : function(err) {
+								alert("failed to upload data");
+							}
+						});
 						//submissionTable.ajax.reload();
 						event.preventDefault();
 					});

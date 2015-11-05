@@ -176,6 +176,7 @@ $(document)
 					$('#button_add_group').on(
 							'click',
 							function(e) {
+								$("#edit_group_id").val(0);
 								tempGroupURL = addGroupURL + '?project_id=' + projectID;
 								$('#modal_group_label').html("Add Project");
 								for ( var i = 0; i < 6; i++) {
