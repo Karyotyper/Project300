@@ -3,10 +3,7 @@ package com.great.cms.db.dao.impl;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.great.cms.db.dao.CourseTaskDao;
-import com.great.cms.db.entity.CourseRegistration;
 import com.great.cms.db.entity.CourseTask;
 
 @Repository("CourseTaskDao")

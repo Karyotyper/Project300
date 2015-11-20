@@ -6,10 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.great.cms.db.dao.TaskTypeDao;
-import com.great.cms.db.entity.CourseRegistration;
-import com.great.cms.db.entity.Task;
 import com.great.cms.db.entity.TaskType;
-import com.great.cms.service.TaskService;
 import com.great.cms.service.TaskTypeService;
 
 @Service("TaskTypeService")

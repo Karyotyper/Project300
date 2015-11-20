@@ -1,6 +1,5 @@
 package com.great.cms.repository;
 
-import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -9,6 +8,7 @@ import com.great.cms.db.entity.Course;
 
 public interface CourseRepository extends JpaRepository<Course, Integer> {
 
+	@Override
 	public List<Course> findAll();
 
 	public Course findByCourseId(Integer courseId);

@@ -1,5 +1,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<% response.setHeader("Cache-Control","no-cache"); 
+/*HTTP 1.1*/ response.setHeader("Pragma","no-cache"); 
+/*HTTP 1.0*/ response.setDateHeader ("Expires", 0);
+%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
@@ -28,13 +31,13 @@
             <div class="
                  col-sm-4 col-sm-offset-1
                  col-xs-12">
-                <a class="navbar-brand" href="submission.html">SUST Archives<sup>beta</sup></a>
+                <a class="navbar-brand" href="/greatweb">SUST Archives<sup>beta</sup></a>
             </div>
             <div class="
                  col-sm-5 col-sm-offset-1
                  col-xs-12">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">${UserRole.getUserName()}</a></li>
                     <li><a href="#">Settings</a></li>
                     <li><a href="sign-in.html">Log out</a></li>
                 </ul>
@@ -46,11 +49,17 @@
         <div class="row searchbar">
             <div class="col-xs-10">
             </div>
-            <div class="col-xs-2">
-                <button id="button_add_submission" class="btn btn-success col-xs-12">
+            <div class="col-xs-2">	
+						
+						<button id="button_add_submission" class="btn btn-success col-xs-12" >
                     <i class="glyphicon glyphicon-plus-sign"></i>
                     Add
                 </button>
+					
+					
+            
+            
+                
             </div>
         </div>
         <div class="clearfix"></div>
@@ -121,7 +130,7 @@
                             <h4 class="modal-title" id="modal_label">Edit Submission</h4>
                         </div>
                         <div class="modal-body">
-
+							<input id="edit_submission_group_id" name="groupId" type="hidden"></input>
                             <div class="row bottom-buffer">
                                 <div class="col-md-4"><label>Date</label></div>
                                 <div class="col-md-8"><input name="submissionTime" id="edit_submission_date" type="date" class="form-control"></input></div>

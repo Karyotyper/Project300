@@ -29,6 +29,8 @@
 		<class>com.great.cms.db.entity.Teaches</class>
 		<class>com.great.cms.db.entity.User</class>
 		<class>com.great.cms.db.entity.UserType</class>
+		<class>com.great.cms.db.entity.Question</class>
+	    <class>com.great.cms.db.entity.QuestionType</class>
 
 
 

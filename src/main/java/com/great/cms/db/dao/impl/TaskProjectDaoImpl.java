@@ -2,12 +2,9 @@ package com.great.cms.db.dao.impl;
 
 import java.util.List;
 
-import javax.persistence.Query;
-
 import org.springframework.stereotype.Repository;
 
 import com.great.cms.db.dao.TaskProjectDao;
-import com.great.cms.db.entity.Project;
 import com.great.cms.db.entity.Task;
 //import com.great.cms.db.entity.Project;
 import com.great.cms.db.entity.TaskProject;

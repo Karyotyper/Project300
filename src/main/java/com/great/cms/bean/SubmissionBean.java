@@ -1,12 +1,17 @@
 package com.great.cms.bean;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class SubmissionBean {
 	private String commentTeacher;
 	private String submissionTime;
 	private byte[] submissionFile;
+	private Integer groupId;
 	
+	public Integer getGroupId() {
+		return groupId;
+	}
+	public void setGroupId(Integer groupId) {
+		this.groupId = groupId;
+	}
 	public String getCommentTeacher() {
 		return commentTeacher;
 	}

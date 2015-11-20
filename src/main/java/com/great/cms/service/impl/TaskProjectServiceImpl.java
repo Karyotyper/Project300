@@ -7,11 +7,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.great.cms.bean.ProjectBean;
+import com.great.cms.db.dao.ExamCommitteeDao;
 import com.great.cms.db.dao.ProjectDao;
 import com.great.cms.db.dao.TaskDao;
 import com.great.cms.db.dao.TaskProjectDao;
+import com.great.cms.db.entity.ExamCommittee;
 import com.great.cms.db.entity.Project;
-import com.great.cms.db.entity.Task;
 import com.great.cms.db.entity.TaskProject;
 import com.great.cms.service.TaskProjectService;
 
@@ -24,6 +26,8 @@ public class TaskProjectServiceImpl implements TaskProjectService,Serializable{
 	private ProjectDao projectDao;
 	@Autowired
 	private TaskDao taskDao;
+	@Autowired
+	private ExamCommitteeDao examCommitteeDao;
 	
 	
 	@Override
@@ -63,8 +67,12 @@ public class TaskProjectServiceImpl implements TaskProjectService,Serializable{
 
 
 	@Override
-	public void updateProject(Project project) {
-		projectDao.update(project);
+	public void updateProject(ProjectBean projectBean) {
+		System.out.println("Triggered Project Update: "+projectBean.toString());
+		Project project = this.projectDao.findById(projectBean.getProjectId());
+		project.setProjectTitle(projectBean.getProjectTitle());
+		project.setProjectDesc(projectBean.getProjectDesc());
+		this.projectDao.update(project);
 		
 	}
 
@@ -73,6 +81,17 @@ public class TaskProjectServiceImpl implements TaskProjectService,Serializable{
 	public void deleteProjectOfTask(int projectId) {
 		projectDao.delete(projectDao.findById(projectId));
 		
+	}
+
+
+	@Override
+	public List<Project> findProjects(int taskId, String session, String semester) {
+		if(session == null) session = "";
+		if(semester == null) semester = "";
+		// TODO convert String params to Int and get the list
+		List<ExamCommittee> list = this.examCommitteeDao.findBySessionAndSemester(1, 1);
+		
+		return null;
 	}
 
 }

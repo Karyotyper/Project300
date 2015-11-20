@@ -2,12 +2,9 @@ package com.great.cms.db.dao.impl;
 
 import java.util.List;
 
-import javax.persistence.Query;
-
 import org.springframework.stereotype.Repository;
 
 import com.great.cms.db.dao.ProjectGroupSubmitDao;
-import com.great.cms.db.entity.ProjectGroup;
 import com.great.cms.db.entity.ProjectGroupSubmit;
 
 @Repository("ProjectGroupSubmitDao")

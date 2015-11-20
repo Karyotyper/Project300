@@ -1,12 +1,8 @@
 package com.great.cms.db.dao.impl;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-
 import org.springframework.stereotype.Repository;
 
 import com.great.cms.db.dao.SubmissionDao;
-import com.great.cms.db.entity.Course;
 import com.great.cms.db.entity.Submission;
 
 @Repository("SubmissionDao")

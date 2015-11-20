@@ -16,7 +16,6 @@ import com.great.cms.db.dao.ProjectGroupDao;
 import com.great.cms.db.dao.ProjectGroupSubmitDao;
 import com.great.cms.db.dao.SubmissionDao;
 import com.great.cms.db.dao.UserDao;
-import com.great.cms.db.entity.ProjectGroup;
 import com.great.cms.db.entity.ProjectGroupSubmit;
 import com.great.cms.db.entity.Submission;
 import com.great.cms.service.ProjectGroupSubmitService;

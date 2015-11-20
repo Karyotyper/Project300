@@ -1,14 +1,13 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package com.great.cms.db.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,16 +17,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Arafat
+ * @author SultanaRazia
  */
 @Entity
 @Table(name = "student")
@@ -82,16 +79,12 @@ public class Student implements Serializable,DomainObject {
     @Basic(optional = false)
     @Column(name = "gender")
     private String gender;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "studentId")
-    private List<CourseRegistration> courseRegistrationList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "studentId")
-    private List<StudentGroup> studentGroupList;
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    @ManyToOne(optional = false)
-    private User userId;
     @JoinColumn(name = "dept_id", referencedColumnName = "dept_id")
     @ManyToOne(optional = false)
     private Department deptId;
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    @ManyToOne(optional = false)
+    private User userId;
 
     public Student() {
     }
@@ -206,22 +199,12 @@ public class Student implements Serializable,DomainObject {
         this.gender = gender;
     }
 
-    @XmlTransient
-    public List<CourseRegistration> getCourseRegistrationList() {
-        return courseRegistrationList;
+    public Department getDeptId() {
+        return deptId;
     }
 
-    public void setCourseRegistrationList(List<CourseRegistration> courseRegistrationList) {
-        this.courseRegistrationList = courseRegistrationList;
-    }
-
-    @XmlTransient
-    public List<StudentGroup> getStudentGroupList() {
-        return studentGroupList;
-    }
-
-    public void setStudentGroupList(List<StudentGroup> studentGroupList) {
-        this.studentGroupList = studentGroupList;
+    public void setDeptId(Department deptId) {
+        this.deptId = deptId;
     }
 
     public User getUserId() {
@@ -230,14 +213,6 @@ public class Student implements Serializable,DomainObject {
 
     public void setUserId(User userId) {
         this.userId = userId;
-    }
-
-    public Department getDeptId() {
-        return deptId;
-    }
-
-    public void setDeptId(Department deptId) {
-        this.deptId = deptId;
     }
 
     @Override
@@ -262,8 +237,7 @@ public class Student implements Serializable,DomainObject {
 
     @Override
     public String toString() {
-        return "com.sustarchive.app.model.Student[ studentId=" + studentId + " ]";
+        return "com.great.cms.db.entity.Student[ studentId=" + studentId + " ]";
     }
     
 }
-

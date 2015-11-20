@@ -12,4 +12,57 @@ public class CourseDaoImpl extends GenericDaoImpl<Course, Integer> implements Co
 		super(Course.class);
 	}
 
+	@Override
+	public Course findByCourseCode(String CourseCode, int offeringDept,int session, int acceptingDept) {
+	
+		Course course = null;
+		//public ConfUser getConfUserByAccctMsisdn(long acctMsisdn){
+		System.out.println("We are in courseDao");
+			try{
+				//courseReg = (CourseRegistration) em.createQuery("select o from " + type.getName() + " o where o.idStudent.idStudent ="+id+" ").getResultList();
+				String query = "select o from " + type.getName() + " o where " +
+     				   "o.courseCode = ?1 ,o.offeringDept = ?2 , o.acceptingDept = 3? ,o.session = 4?" ;
+     	course = (Course)em.createQuery(query)
+     			 .setParameter(1, CourseCode)
+     			 .setParameter(2,offeringDept)
+     			 .setParameter(3,acceptingDept)
+     			 .setParameter(4,session)
+     			 .getResultList().get(0);
+     	
+     	
+     		}
+			catch(Exception e){
+				System.out.println("*******failure******* in courseCode, dept, session, "+"trace of error "+ e);
+				return null;
+	        }
+			System.out.println("*******successful*******course");
+			return course;
+		//}
+	}
+
+	@Override
+	public Course findByCourseCode(String CourseCode) {
+		// TODO Auto-generated method stub
+		Course course = null;
+		//public ConfUser getConfUserByAccctMsisdn(long acctMsisdn){
+		System.out.println("We are in courseDao");
+			try{
+				//courseReg = (CourseRegistration) em.createQuery("select o from " + type.getName() + " o where o.idStudent.idStudent ="+id+" ").getResultList();
+				String query = "select o from " + type.getName() + " o where " +
+     				   "o.courseCode = ?1 " ;
+     	course = (Course)em.createQuery(query)
+     			 .setParameter(1, CourseCode)
+     			 
+     			 .getResultList().get(0);
+     	
+     	
+     		}
+			catch(Exception e){
+				System.out.println("*******failure******* in courseCode, dept, session, "+"trace of error "+ e);
+				return null;
+	        }
+			System.out.println("*******successful*******course");
+			return course;
+	}
+
 }

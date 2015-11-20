@@ -14,14 +14,9 @@ import com.great.cms.db.dao.CourseDao;
 import com.great.cms.db.dao.TeacherDao;
 import com.great.cms.db.dao.TeachesDao;
 import com.great.cms.db.entity.Course;
-import com.great.cms.db.entity.Task;
 import com.great.cms.db.entity.Teacher;
 import com.great.cms.db.entity.Teaches;
 import com.great.cms.service.TeacherCourseService;
-
-
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 
 //Tested
@@ -49,7 +44,7 @@ public class TeacherCourseServiceImpl implements TeacherCourseService, Serializa
 	@Override
 	public String getCourseListByUserId(Long userId) {
 
-		teacher = teacherDao.findByUserId(userId);
+		teacher = (List<Teacher>) teacherDao.findByUserId(userId);
 		for (Teacher teachers : teacher) {
 
 			InstructorId = teachers.getInstructorId();

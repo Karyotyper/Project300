@@ -1,5 +1,6 @@
 package com.great.cms.db.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -39,6 +40,34 @@ public class StudentGroupDaoImpl extends GenericDaoImpl<StudentGroup, Integer> i
 		}
 		
 		System.out.println("findStudentByGroupId was successful");
+
+		return list;
+	}
+
+
+	@Override
+	public List<StudentGroup> findGroupByStudentId(int studentId) {
+		
+		List<StudentGroup> list = new ArrayList<>();
+		String query = "select o from " + type.getName()
+				+ " o where o.studentId.studentId = ?1";
+
+		try {
+			
+			list = em.createQuery(query)
+					.setParameter(1, studentId)
+					.getResultList();
+			
+		} catch (Exception e) {
+			
+			System.out.println("Exception in findGroupbystudentId,studentId = "
+					+ studentId + " error trace : ");
+			e.printStackTrace();
+			return null;
+			
+		}
+		
+		System.out.println("findGroupStudentId was successful");
 
 		return list;
 	}

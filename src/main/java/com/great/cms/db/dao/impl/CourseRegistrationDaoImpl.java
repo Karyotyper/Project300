@@ -31,8 +31,7 @@ public class CourseRegistrationDaoImpl extends GenericDaoImpl<CourseRegistration
 			try{
 				//courseReg = (CourseRegistration) em.createQuery("select o from " + type.getName() + " o where o.idStudent.idStudent ="+id+" ").getResultList();
 				String query = "select o from " + type.getName() + " o where " +
-     				   "o.idStudent.idStudent = ?1 " +
-     				   "order by o.idStudent ";
+     				   "o.studentId.studentId = ?1 " ;
      	list = em.createQuery(query)
      			 .setParameter(1, id)
      			 .getResultList();
@@ -41,6 +40,7 @@ public class CourseRegistrationDaoImpl extends GenericDaoImpl<CourseRegistration
      		}
 			catch(Exception e){
 				System.out.println("*******failure*******");
+				return null;
 	        }
 			System.out.println("*******successful*******");
 			return list;

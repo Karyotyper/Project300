@@ -12,4 +12,38 @@ public class StudentDaoImpl extends GenericDaoImpl<Student, Integer> implements 
 		super(Student.class);
 	}
 
+	@Override
+	public Student getStudentByRegNo(int registrationNo) {
+		Student student;
+		String query = "select o from " + type.getName()
+				+ " o where o.registrationNo = ?1";
+		try {
+			student = (Student) em.createQuery(query)
+					.setParameter(1, registrationNo)
+					.getResultList().get(0);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;		
+		}
+		return student;
+	}
+
+	@Override
+	public Student getStudentByUserId(Long userId) {
+		
+		Student student;
+		String query = "select o from " + type.getName()
+				+ " o where o.userId.userId = ?1";
+		try {
+			student = (Student) em.createQuery(query)
+					.setParameter(1, userId)
+					.getResultList().get(0);
+			
+		} catch (Exception e) {
+			System.out.println("eroor in hql "+ e);
+			return null;		
+		}
+		return student;
+	}
 }

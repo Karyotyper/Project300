@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.great.cms.db.entity.Student;
 import com.great.cms.repository.StudentRepository;
 
 @Controller

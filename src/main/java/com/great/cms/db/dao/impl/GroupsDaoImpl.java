@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import com.great.cms.db.dao.GroupsDao;
 import com.great.cms.db.entity.Groups;
 import com.great.cms.db.entity.Task;
-import com.great.cms.db.entity.TaskProject;
 
 @Repository("GroupsDao")
 public class GroupsDaoImpl extends GenericDaoImpl<Groups, Integer> implements GroupsDao {

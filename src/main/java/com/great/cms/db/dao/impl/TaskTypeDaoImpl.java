@@ -1,11 +1,8 @@
 package com.great.cms.db.dao.impl;
 
-import java.util.List;
-
 import org.springframework.stereotype.Repository;
 
 import com.great.cms.db.dao.TaskTypeDao;
-import com.great.cms.db.entity.CourseRegistration;
 import com.great.cms.db.entity.TaskType;
 
 @Repository("TaskTypeDaoImpl")

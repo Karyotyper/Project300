@@ -1,12 +1,8 @@
 package com.great.cms.db.dao.impl;
 
-import java.util.List;
-
 import org.springframework.stereotype.Repository;
 
 import com.great.cms.db.dao.UserTypeDao;
-import com.great.cms.db.entity.CourseRegistration;
-import com.great.cms.db.entity.User;
 import com.great.cms.db.entity.UserType;
 
 //Tested

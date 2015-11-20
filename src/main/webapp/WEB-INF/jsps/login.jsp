@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<% response.setHeader("Cache-Control","no-cache"); 
+/*HTTP 1.1*/ response.setHeader("Pragma","no-cache"); 
+/*HTTP 1.0*/ response.setDateHeader ("Expires", 0);
+%> 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -9,6 +13,15 @@
 <meta name="viewport" content="width-device-width, initial-scale=1.0">
 <title>SUST Archives</title>
 <link href="<c:url value="/resources/css/topbar.css" />"
+	rel="stylesheet" type="text/css" />
+	
+	<link href="<c:url value="/resources/css/reset.css" />"
+	rel="stylesheet" type="text/css" />
+	
+	<link href="<c:url value="/resources/css/animate.css" />"
+	rel="stylesheet" type="text/css" />
+	
+	<link href="<c:url value="/resources/css/styles.css" />"
 	rel="stylesheet" type="text/css" />
 
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
@@ -32,18 +45,47 @@
 			class="
                  col-sm-4 col-sm-offset-1
                  col-xs-12">
-			<a class="navbar-brand" href="project-groups.html">SUST Archives<sup>beta</sup></a>
+			<a class="navbar-brand" href="/greatweb">SUST Archives<sup>beta</sup></a>
 		</div>
 	</div>
 	</nav>
 	</div>
 	</nav>
 
-	<form action="checklogin" method="post">
-		<p id="login_status_message"><c:out value ='${message}'/></p>
-		<input id="username" name="username"></input> <input id="password"
-			name="password" type="password"></input> <input type="submit"
-			value="Log in"></input>
-	</form>
+
+
+	
+
+     <div id="container">
+		
+		<form action="checklogin" method="post">
+		
+		<label for="name">Username:</label>
+		
+		<input type="name" id="username" name="user_name">
+		
+		<label for="username">Password:</label>
+		
+		
+		
+		<input id="password"name="password" type="password">
+		
+		<div id="lower">
+		
+		
+		
+		<input type="submit" value="Login">
+		
+		<p id="login_status_message">
+			<c:out value='${message}' />
+		</p>
+		
+		</div>
+		
+		</form>
+		
+	</div>
+	
+
 </body>
 </html>
