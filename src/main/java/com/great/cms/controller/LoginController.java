@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,7 +27,7 @@ public class LoginController {
 		
 		
 		User user =null;
-		
+		System.out.println("usr name = " + username + " pass : " + password);
 		user=userService.getUserByName(username);
 		if(user==null){
 			model.addAttribute("message", "Invalid usrname or password");
@@ -48,5 +49,30 @@ public class LoginController {
 		}
 		
 	}
+	/**
+	 * Created this method for future purpose, in case we include sign up functionality
+	 * @param newUser
+	 * @return
+	 */
 	
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+	public String userSignUp(User newUser) {
+		
+		System.out.println("/signup");
+		User user = null;
+		  user = userService.getUserByName(user.getUserName());
+		  
+		if (user != null) {
+			
+			System.out.println("User account exists");
+			
+			return "signup";
+		} 
+		else {
+			userService.save(newUser);
+			System.out.println("User account created!");
+			
+			return "signup";
+		}
+	}
 }
